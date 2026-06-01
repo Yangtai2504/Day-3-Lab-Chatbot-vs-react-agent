@@ -1,0 +1,133 @@
+{
+  "description": "Bộ test case cho Chatbot vs ReAct Agent. type: simple (1 tool) | multi (>=2 tool, chatbot dễ fail) | edge (data biên, dễ sinh failure trace).",
+  "cases": [
+    {
+      "id": "TC01",
+      "type": "simple",
+      "question": "Môn ML301 yêu cầu tiên quyết gì?",
+      "expected_tools": ["check_prerequisite"],
+      "expected_contains": ["CS101", "MATH201"],
+      "note": "Bài 1 bước. Cả chatbot lẫn agent đều nên trả đúng."
+    },
+    {
+      "id": "TC02",
+      "type": "simple",
+      "question": "GPA của sinh viên SV001 là bao nhiêu?",
+      "expected_tools": ["get_student_record"],
+      "expected_contains": ["3.2"],
+      "note": "Bài 1 bước, tra cứu trực tiếp."
+    },
+    {
+      "id": "TC03",
+      "type": "simple",
+      "question": "Học phí 1 tín chỉ của môn AI401 là bao nhiêu?",
+      "expected_tools": ["calculate_tuition"],
+      "expected_contains": ["1,800,000"],
+      "note": "Tra học phí đơn môn."
+    },
+    {
+      "id": "TC04",
+      "type": "simple",
+      "question": "Lịch thi môn DB201 ngày nào?",
+      "expected_tools": ["get_exam_schedule"],
+      "expected_contains": ["2026-06-22"],
+      "note": "Bonus tool get_exam_schedule."
+    },
+    {
+      "id": "TC05",
+      "type": "multi",
+      "question": "SV001 đủ điều kiện học ML301 không? Tính học phí 3 tín chỉ sau học bổng 20%.",
+      "expected_tools": ["check_prerequisite", "get_student_record", "calculate_tuition", "apply_scholarship"],
+      "expected_contains": ["đủ", "4,500,000", "3,600,000"],
+      "note": "TEST CASE VÀNG — 4 bước. Chatbot thường bịa số/thiếu bước; agent giải đúng."
+    },
+    {
+      "id": "TC06",
+      "type": "multi",
+      "question": "SV002 có học được ML301 không? Nếu chưa thì còn thiếu môn tiên quyết nào?",
+      "expected_tools": ["check_prerequisite", "get_student_record"],
+      "expected_contains": ["MATH201", "chưa", "không đủ"],
+      "note": "SV002 mới học CS101 -> thiếu MATH201. Agent phải đối chiếu 2 nguồn."
+    },
+    {
+      "id": "TC07",
+      "type": "multi",
+      "question": "SV004 muốn học AI401. Kiểm tra điều kiện và tính học phí 4 tín chỉ sau học bổng xuất sắc 50%.",
+      "expected_tools": ["check_prerequisite", "get_student_record", "calculate_tuition", "apply_scholarship"],
+      "expected_contains": ["đủ", "7,200,000", "3,600,000"],
+      "note": "Chuỗi tiên quyết nhiều tầng (AI401 cần ML301+DB201). SV004 GPA 3.8 -> học bổng 50%."
+    },
+    {
+      "id": "TC08",
+      "type": "multi",
+      "question": "SV008 đủ điều kiện học NLP302 chưa? Tính học phí 3 tín chỉ sau học bổng 30%.",
+      "expected_tools": ["check_prerequisite", "get_student_record", "calculate_tuition", "apply_scholarship"],
+      "expected_contains": ["đủ", "4,800,000", "3,360,000"],
+      "note": "SV008 đã qua ML301 -> đủ điều kiện NLP302. GPA 3.05 cho học bổng khuyến khích."
+    },
+    {
+      "id": "TC09",
+      "type": "multi",
+      "question": "SV012 muốn học BIGDATA401. Kiểm tra điều kiện và tính học phí 4 tín chỉ sau học bổng giỏi 30%.",
+      "expected_tools": ["check_prerequisite", "get_student_record", "calculate_tuition", "apply_scholarship"],
+      "expected_contains": ["đủ", "6,800,000", "4,760,000"],
+      "note": "BIGDATA401 cần DB201+STAT201, SV012 đã có cả hai. GPA 3.4."
+    },
+    {
+      "id": "TC10",
+      "type": "multi",
+      "question": "SV004 có học ngay được RL402 không? Nếu chưa thì còn thiếu môn nào?",
+      "expected_tools": ["check_prerequisite", "get_student_record"],
+      "expected_contains": ["AI401", "chưa", "không đủ"],
+      "note": "RL402 cần AI401 (SV004 mới đang học, chưa qua) -> chuỗi suy luận sâu, dễ lộ giới hạn chatbot."
+    },
+    {
+      "id": "TC11",
+      "type": "multi",
+      "question": "SV010 đủ điều kiện học AI401 không? Tính học phí 4 tín chỉ sau học bổng xuất sắc 50%.",
+      "expected_tools": ["check_prerequisite", "get_student_record", "calculate_tuition", "apply_scholarship"],
+      "expected_contains": ["đủ", "7,200,000", "3,600,000"],
+      "note": "SV010 GPA 3.9 (top), đã qua ML301+DB201 -> đủ AI401."
+    },
+    {
+      "id": "TC12",
+      "type": "edge",
+      "question": "Tra hồ sơ sinh viên SV999.",
+      "expected_tools": ["get_student_record"],
+      "expected_contains": ["ERROR", "Không tìm thấy"],
+      "note": "Sinh viên không tồn tại -> tool trả ERROR. Quan sát agent xử lý lỗi (self-correct)."
+    },
+    {
+      "id": "TC13",
+      "type": "edge",
+      "question": "Môn XYZ123 cần tiên quyết gì và học phí 3 tín chỉ bao nhiêu?",
+      "expected_tools": ["check_prerequisite", "calculate_tuition"],
+      "expected_contains": ["ERROR", "Không tìm thấy"],
+      "note": "Môn không tồn tại -> dễ kích hoạt Hallucination/Parse error ở chatbot."
+    },
+    {
+      "id": "TC14",
+      "type": "edge",
+      "question": "SV002 có bị cảnh báo học vụ không? GPA bao nhiêu thì bị cảnh báo?",
+      "expected_tools": ["get_student_record", "check_academic_warning"],
+      "expected_contains": ["1.8", "cảnh báo"],
+      "note": "GPA 1.8 < 2.0 -> cảnh báo học vụ. Bonus tool check_academic_warning."
+    },
+    {
+      "id": "TC15",
+      "type": "edge",
+      "question": "SV005 GPA 2.05 có bị cảnh báo học vụ không?",
+      "expected_tools": ["get_student_record", "check_academic_warning"],
+      "expected_contains": ["2.05", "không"],
+      "note": "Ca biên: ngay trên ngưỡng 2.0 -> KHÔNG cảnh báo. Test ranh giới."
+    },
+    {
+      "id": "TC16",
+      "type": "edge",
+      "question": "Sinh viên năm nhất SV009 đăng ký được ML301 luôn không?",
+      "expected_tools": ["check_prerequisite", "get_student_record"],
+      "expected_contains": ["chưa", "CS101", "MATH201", "không đủ"],
+      "note": "SV009 chưa qua môn nào (0 tín chỉ) -> thiếu toàn bộ tiên quyết."
+    }
+  ]
+}
