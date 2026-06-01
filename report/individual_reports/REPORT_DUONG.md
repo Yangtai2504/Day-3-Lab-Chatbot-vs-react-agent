@@ -1,7 +1,7 @@
 # Individual Report: Lab 3 - Chatbot vs ReAct Agent
 
-- **Student Name**: Nguyen Thanh Duong
-- **Student ID**: [ID Here]
+- **Student Name**: Nguyen Thai Duong
+- **Student ID**: 2A202600823
 - **Role**: P5 — Evaluation & Failure Analysis
 - **Branch**: Duong
 - **Date**: 2026-06-01
