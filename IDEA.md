@@ -65,14 +65,14 @@ Agent giúp sinh viên quyết định đăng ký môn. Đa bước rõ rệt nh
 
 ## 3. Phân vai 6 người
 
-| # | Vai trò | File phụ trách | Output chính | Điểm group |
-|---|---|---|---|---|
-| **P1** | Agent Core Lead | `src/agent/agent.py` | `run()` (vòng lặp ReAct), `_execute_tool()`, regex parser | Agent v1 (7) |
-| **P2** | Tools Engineer | `src/tools/edu_tools.py` | 4 tool + registry `EDU_TOOLS` | Tool Design (4) |
-| **P3** | Chatbot + Prompt | `chatbot.py` + `get_system_prompt()` | Baseline so sánh; prompt v1→v2 | Chatbot (2) + Agent v2 (7) |
-| **P4** | Telemetry & Metrics | `metrics.py` + `scripts/parse_logs.py` | Cost thật; bảng token/latency/cost | Code Quality (4) + Bonus (+3) |
-| **P5** | Evaluation & Failure | `tests/test_cases.py` | ≥6 test case; thu trace thành công + thất bại | Trace (9) + Evaluation (7) |
-| **P6** | Report & Flowchart | `report/group_report/` | Flowchart ReAct; tổng hợp report | Flowchart & Insight (5) |
+| # | Người | Vai trò | File phụ trách | Output chính | Điểm group |
+|---|---|---|---|---|---|
+| **P1** | **Quỳnh** | Agent Core Lead | `src/agent/agent.py` | `run()` (vòng lặp ReAct), `_execute_tool()`, regex parser | Agent v1 (7) |
+| **P2** | **Kiên** | Tools Engineer | `src/tools/edu_tools.py` | 4 tool + registry `EDU_TOOLS` | Tool Design (4) |
+| **P3** | **Phương** | Chatbot + Prompt | `chatbot.py` + `get_system_prompt()` | Baseline so sánh; prompt v1→v2 | Chatbot (2) + Agent v2 (7) |
+| **P4** | **Dũng** | Telemetry & Metrics | `metrics.py` + `scripts/parse_logs.py` | Cost thật; bảng token/latency/cost | Code Quality (4) + Bonus (+3) |
+| **P5** | **Dương** | Evaluation & Failure | `tests/test_cases.py` | ≥6 test case; thu trace thành công + thất bại | Trace (9) + Evaluation (7) |
+| **P6** | **Huyền** | Report & Flowchart | `report/group_report/` | Flowchart ReAct; tổng hợp report | Flowchart & Insight (5) |
 
 > Mỗi người tự viết 1 **individual report** (40đ cá nhân) dựa trên đúng phần mình làm + ít nhất 1 failure trace tự debug.
 

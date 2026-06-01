@@ -9,17 +9,17 @@
 
 ## 👥 5 Người Làm
 
-| Người | Branch | File sở hữu | Nhiệm vụ chính | Phụ thuộc |
-|---|---|---|---|---|
-| **P1 — Agent Core** | `feat/agent` | `src/agent/agent.py` | Vòng lặp ReAct `run()`, regex parser Thought/Action/Final Answer, `_execute_tool()` | Cần format Action từ P2 |
-| **P2 — Tools** | `feat/tools` | `src/tools/edu_tools.py` (mới) | 4 tool giáo dục + registry `EDU_TOOLS`; **chốt format `Action: tool(args)`** | Không phụ thuộc — làm trước |
-| **P3 — Chatbot & Prompt** | `feat/chatbot` | `chatbot.py` (mới) + `get_system_prompt()` | Baseline để so sánh; tinh chỉnh prompt v1 → v2 dựa trên log | Cần log từ P1/P4 cho v2 |
-| **P4 — Telemetry** | `feat/metrics` | `src/telemetry/metrics.py` + `scripts/parse_logs.py` (mới) | Cost thật (`_calculate_cost`) + bảng token/latency/cost/error | Cần agent chạy ra log |
-| **P5 — Evaluation** | `feat/eval` | `tests/test_cases.py` (mới) + nội dung trace | ≥6 test case (3 simple + 3 multi); thu trace thành công + 3 loại thất bại | Cần P1 + P2 xong |
+| Người | Phụ trách | Branch | File sở hữu | Nhiệm vụ chính | Phụ thuộc |
+|---|---|---|---|---|---|
+| **P1 — Agent Core** | **Quỳnh** | `feat/agent` | `src/agent/agent.py` | Vòng lặp ReAct `run()`, regex parser Thought/Action/Final Answer, `_execute_tool()` | Cần format Action từ P2 |
+| **P2 — Tools** | **Kiên** | `feat/tools` | `src/tools/edu_tools.py` (mới) | 4 tool giáo dục + registry `EDU_TOOLS`; **chốt format `Action: tool(args)`** | Không phụ thuộc — làm trước |
+| **P3 — Chatbot & Prompt** | **Phương** | `feat/chatbot` | `chatbot.py` (mới) + `get_system_prompt()` | Baseline để so sánh; tinh chỉnh prompt v1 → v2 dựa trên log | Cần log từ P1/P4 cho v2 |
+| **P4 — Telemetry** | **Dũng** | `feat/metrics` | `src/telemetry/metrics.py` + `scripts/parse_logs.py` (mới) | Cost thật (`_calculate_cost`) + bảng token/latency/cost/error | Cần agent chạy ra log |
+| **P5 — Evaluation** | **Dương** | `feat/eval` | `tests/test_cases.py` (mới) + nội dung trace | ≥6 test case (3 simple + 3 multi); thu trace thành công + 3 loại thất bại | Cần P1 + P2 xong |
 
 ---
 
-## 🔀 P6 — Người Merge / Integrator (làm trên `main`)
+## 🔀 P6 — Người Merge / Integrator — **Huyền** (làm trên `main`)
 
 Không sở hữu feature riêng, chịu trách nhiệm tích hợp:
 
