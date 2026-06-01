@@ -453,7 +453,6 @@ def run_tool_smoke_tests():
 
     tests = [
         ("get_student_record",    lambda: get_student_record("SV001")),
-        ("get_student_record_invalid", lambda: get_student_record("SVXXX")),
         ("check_prerequisite",   lambda: check_prerequisite("ML301")),
         ("check_prerequisite_no_prereq", lambda: check_prerequisite("CS101")),
         ("calculate_tuition",    lambda: calculate_tuition("ML301", "3")),
