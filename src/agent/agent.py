@@ -52,6 +52,7 @@ Rules:
                 "response": content,
                 "usage": usage,
                 "latency_ms": latency,
+                "observation": None,  # gán sau khi chạy tool (phục vụ hiển thị trace trên web demo)
             })
 
             logger.log_event("LLM_RESPONSE", {
@@ -69,12 +70,14 @@ Rules:
             action_data = self._parse_action(content)
             if action_data is None:
                 logger.log_event("PARSE_ERROR", {"step": steps + 1, "raw": content[:300]})
+                self.history[-1]["observation"] = "PARSE_ERROR: không đọc được Action."
                 transcript += f"{content}\nObservation: Tôi không đọc được Action. Vui lòng dùng định dạng Action: tool_name(arg1, arg2).\n"
                 steps += 1
                 continue
 
             tool_name, raw_args = action_data
             observation = self._execute_tool(tool_name, raw_args)
+            self.history[-1]["observation"] = observation
             logger.log_event("TOOL_CALL", {
                 "step": steps + 1,
                 "tool": tool_name,
