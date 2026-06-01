@@ -21,7 +21,10 @@ Vai trò P6 không sở hữu một feature đơn lẻ mà chịu trách nhiệm
 | Sửa bug ReAct loop | `src/agent/agent.py` | Đảo logic ưu tiên Action (xem mục II) + siết system prompt tiếng Việt |
 | Thêm tool còn thiếu | `src/tools/edu_tools.py` | `get_scholarship_rate` (GPA→% học bổng) + `list_available_courses` |
 | Telemetry P4 | `src/telemetry/metrics.py` | `_calculate_cost` bằng **bảng giá thật** (input/output theo model) thay cho dummy |
-| Parse logs | `scripts/parse_logs.py` | Đọc log JSON → bảng token/latency/cost/error, tách theo từng run |
+| Parse logs | `scripts/parse_logs.py` | Đọc log JSON → bảng token/latency/cost/error, tách theo từng run **và từng session** |
+| Fail-safe logging | `src/agent/agent.py` | Bọc lời gọi LLM trong try/except → mọi lỗi được **ghi vào log kèm traceback** (`AGENT_END status=error`) thay vì crash âm thầm |
+| Timeout watchdog | `src/agent/agent.py` | Watchdog **30s/lượt** (ThreadPoolExecutor + `future.result(timeout)`): LLM treo quá ngưỡng → log `status=timeout` và trả lỗi thân thiện |
+| Session tracking | `src/telemetry/logger.py`, `app.py` | Mỗi tiến trình/phiên trình duyệt mang `session_id` riêng; mọi event gắn id và ghi thêm vào `logs/sessions/<id>.log` |
 | Robustness | `src/core/gemini_provider.py` | Retry/backoff khi gặp 429 (free tier Gemini 5 req/phút) |
 | Web demo (bonus) | `app.py` | Streamlit so sánh Chatbot vs Agent, hiện trace Thought→Action→Observation |
 | Flowchart | `report/group_report/flowchart_react.md` | Sơ đồ vòng lặp ReAct (Mermaid + ASCII) |
@@ -33,6 +36,29 @@ Vai trò P6 không sở hữu một feature đơn lẻ mà chịu trách nhiệm
   để agent tự chain `check_prerequisite` + `get_student_record` cho phần "đủ điều kiện".
 - **Dependency order:** P5 eval phụ thuộc P1+P2 nên được merge sau cùng; tool của Dương
   (trùng `edu_tools.py` với P2) bị loại khỏi merge để tránh xung đột chủ quyền file.
+
+### Bổ sung: Telemetry chịu lỗi & tách log theo session
+
+Sau khi ráp xong, mình củng cố tầng telemetry để **quan sát được cả lúc agent hỏng**, chứ
+không chỉ lúc chạy trơn:
+
+1. **Lưu log khi fail.** Trước đây nếu provider ném lỗi (mất mạng, 5xx, key sai) thì agent
+   crash và **không để lại dấu vết** trong log. Mình bọc lời gọi LLM trong `try/except`: lỗi
+   bất kỳ được ghi thành event `AGENT_END status=error` (kèm `error_type`) và `logger.error(...,
+   exc_info=True)` để **traceback vào thẳng file log** — debug sau sự cố không cần dựng lại hiện trường.
+
+2. **Báo lỗi khi quá 30s không phản hồi.** `llm.generate` là lời gọi mạng blocking; nếu API
+   treo thì cả run đứng vô thời hạn. Mình thêm **watchdog 30s/lượt** (`_generate_with_timeout`
+   chạy generate trong thread riêng, `future.result(timeout=30)`); quá ngưỡng → log
+   `status=timeout` và trả thông báo thân thiện thay vì treo. Ngưỡng cấu hình qua `timeout_s`.
+
+3. **Track log theo từng session.** Mỗi tiến trình/phiên trình duyệt mở một `session_id`
+   (`YYYYMMDD-HHMMSS-<hex>`); mọi event gắn id và được ghi **đồng thời** vào log tổng theo ngày
+   `logs/YYYY-MM-DD.log` **và** log riêng `logs/sessions/<id>.log`. Trên web demo, mỗi tab trình
+   duyệt là một session độc lập (`logger.set_session` trước mỗi lần chạy để không lẫn log giữa
+   các phiên). `parse_logs.py` nhận thêm `--by-session` (bảng tổng hợp từng phiên) và `--session <id>`.
+
+Cả ba đều **tương thích ngược**: log cũ không có `session_id` được gom vào phiên `unknown`.
 
 ---
 

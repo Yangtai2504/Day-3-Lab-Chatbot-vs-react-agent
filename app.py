@@ -18,8 +18,13 @@ from dotenv import load_dotenv
 
 from src.agent.agent import ReActAgent
 from src.tools.edu_tools import EDU_TOOLS
+from src.telemetry.logger import logger
 
 load_dotenv()
+
+# Mỗi phiên trình duyệt = 1 session log riêng. Tạo id một lần rồi tái dùng.
+if "session_id" not in st.session_state:
+    st.session_state["session_id"] = logger.new_session()
 
 # ── Cấu hình trang ────────────────────────────────────────────────────────────
 st.set_page_config(page_title="Chatbot vs ReAct Agent", page_icon="🎓", layout="wide")
@@ -143,6 +148,10 @@ if run_clicked:
     if not has_api_key(provider_name):
         st.error("Chưa có API key — xem hướng dẫn ở sidebar.")
         st.stop()
+
+    # Logger là global (dùng chung nhiều phiên trong cùng tiến trình) — gắn lại
+    # session_id của phiên này trước khi chạy để log không lẫn sang phiên khác.
+    logger.set_session(st.session_state["session_id"])
 
     try:
         llm = build_provider(provider_name, model)

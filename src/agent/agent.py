@@ -1,4 +1,5 @@
 import re
+import concurrent.futures
 from typing import List, Dict, Any, Optional
 from src.core.llm_provider import LLMProvider
 from src.telemetry.logger import logger
@@ -8,10 +9,17 @@ class ReActAgent:
     A ReAct-style agent that follows the Thought -> Action -> Observation loop.
     """
 
-    def __init__(self, llm: LLMProvider, tools: List[Dict[str, Any]], max_steps: int = 5):
+    def __init__(
+        self,
+        llm: LLMProvider,
+        tools: List[Dict[str, Any]],
+        max_steps: int = 5,
+        timeout_s: int = 30,
+    ):
         self.llm = llm
         self.tools = tools
         self.max_steps = max_steps
+        self.timeout_s = timeout_s  # quá ngưỡng này mà LLM chưa phản hồi → báo lỗi
         self.history: List[Dict[str, Any]] = []
 
     def get_system_prompt(self) -> str:
@@ -46,7 +54,35 @@ Quy tắc:
         steps = 0
 
         while steps < self.max_steps:
-            result = self.llm.generate(transcript, system_prompt=self.get_system_prompt())
+            try:
+                result = self._generate_with_timeout(transcript, self.get_system_prompt())
+            except concurrent.futures.TimeoutError:
+                # Quá timeout_s mà LLM chưa trả lời → ghi log lỗi và dừng.
+                logger.log_event("AGENT_END", {
+                    "steps": steps + 1,
+                    "status": "timeout",
+                    "timeout_s": self.timeout_s,
+                })
+                logger.error(
+                    f"AGENT TIMEOUT: LLM không phản hồi trong {self.timeout_s}s "
+                    f"(input={user_input[:80]!r})",
+                    exc_info=False,
+                )
+                return (
+                    f"Lỗi: mô hình không phản hồi trong {self.timeout_s}s. "
+                    "Vui lòng thử lại hoặc kiểm tra kết nối."
+                )
+            except Exception as exc:
+                # Bất kỳ lỗi nào khi gọi LLM cũng được lưu vào log (kèm traceback).
+                logger.log_event("AGENT_END", {
+                    "steps": steps + 1,
+                    "status": "error",
+                    "error": str(exc),
+                    "error_type": type(exc).__name__,
+                })
+                logger.error(f"AGENT ERROR khi gọi LLM ở bước {steps + 1}: {exc}", exc_info=True)
+                return f"Lỗi khi gọi mô hình: {exc}"
+
             content = str(result.get("content", "")).strip()
             usage = result.get("usage", {})
             latency = result.get("latency_ms")
@@ -109,6 +145,21 @@ Quy tắc:
             "Đã vượt quá giới hạn số bước. "
             "Nếu vẫn chưa có câu trả lời, hãy thử hỏi rõ hơn hoặc giảm số bước yêu cầu."
         )
+
+    def _generate_with_timeout(self, transcript: str, system_prompt: str) -> Dict[str, Any]:
+        """Gọi LLM với watchdog: nếu quá self.timeout_s giây chưa có kết quả thì
+        raise concurrent.futures.TimeoutError. Lệnh generate là blocking (network),
+        nên dùng thread riêng để có thể bỏ qua khi treo."""
+        executor = concurrent.futures.ThreadPoolExecutor(max_workers=1)
+        future = executor.submit(
+            self.llm.generate, transcript, system_prompt=system_prompt
+        )
+        try:
+            return future.result(timeout=self.timeout_s)
+        finally:
+            # wait=False: không chặn ở đây để return ngay khi timeout; thread treo
+            # (nếu có) sẽ tự kết thúc sau, không giữ luồng chính.
+            executor.shutdown(wait=False)
 
     def _parse_action(self, text: str) -> Optional[tuple[str, str]]:
         match = re.search(
