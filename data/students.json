@@ -1,0 +1,1516 @@
+{
+  "SV001": {
+    "name": "Nguyễn Văn An",
+    "gpa": 3.2,
+    "credits_completed": 7,
+    "passed": [
+      "CS101",
+      "MATH201"
+    ],
+    "enrolled": [
+      "DB201"
+    ]
+  },
+  "SV002": {
+    "name": "Trần Thị Bình",
+    "gpa": 1.8,
+    "credits_completed": 3,
+    "passed": [
+      "CS101"
+    ],
+    "enrolled": []
+  },
+  "SV003": {
+    "name": "Lê Văn Chí",
+    "gpa": 2.5,
+    "credits_completed": 10,
+    "passed": [
+      "CS101",
+      "MATH201",
+      "DB201"
+    ],
+    "enrolled": [
+      "ML301"
+    ]
+  },
+  "SV004": {
+    "name": "Phạm Thị Dung",
+    "gpa": 3.8,
+    "credits_completed": 13,
+    "passed": [
+      "CS101",
+      "MATH201",
+      "DB201",
+      "ML301"
+    ],
+    "enrolled": [
+      "AI401"
+    ]
+  },
+  "SV005": {
+    "name": "Hoàng Văn Em",
+    "gpa": 2.05,
+    "credits_completed": 3,
+    "passed": [
+      "CS101"
+    ],
+    "enrolled": []
+  },
+  "SV006": {
+    "name": "Vũ Thị Giang",
+    "gpa": 3.55,
+    "credits_completed": 14,
+    "passed": [
+      "CS101",
+      "MATH201",
+      "MATH202",
+      "CS102"
+    ],
+    "enrolled": [
+      "ML301",
+      "STAT201"
+    ]
+  },
+  "SV007": {
+    "name": "Đặng Văn Hùng",
+    "gpa": 2.9,
+    "credits_completed": 10,
+    "passed": [
+      "CS101",
+      "CS102",
+      "DB201"
+    ],
+    "enrolled": [
+      "OS301"
+    ]
+  },
+  "SV008": {
+    "name": "Bùi Thị Lan",
+    "gpa": 3.05,
+    "credits_completed": 10,
+    "passed": [
+      "CS101",
+      "MATH201",
+      "ML301"
+    ],
+    "enrolled": [
+      "NLP302"
+    ]
+  },
+  "SV009": {
+    "name": "Ngô Văn Minh",
+    "gpa": 0.0,
+    "credits_completed": 0,
+    "passed": [],
+    "enrolled": [
+      "CS101"
+    ]
+  },
+  "SV010": {
+    "name": "Dương Thị Nga",
+    "gpa": 3.9,
+    "credits_completed": 23,
+    "passed": [
+      "CS101",
+      "MATH201",
+      "MATH202",
+      "CS102",
+      "DB201",
+      "STAT201",
+      "ML301"
+    ],
+    "enrolled": [
+      "AI401",
+      "BIGDATA401"
+    ]
+  },
+  "SV011": {
+    "name": "Phan Văn Phú",
+    "gpa": 2.2,
+    "credits_completed": 7,
+    "passed": [
+      "CS101",
+      "CS102"
+    ],
+    "enrolled": [
+      "DB201"
+    ]
+  },
+  "SV012": {
+    "name": "Lý Thị Quỳnh",
+    "gpa": 3.4,
+    "credits_completed": 13,
+    "passed": [
+      "CS101",
+      "MATH201",
+      "DB201",
+      "STAT201"
+    ],
+    "enrolled": [
+      "ML301",
+      "BIGDATA401"
+    ]
+  },
+  "B24DCCN713": {
+    "name": "Đỗ Quang Loan",
+    "gpa": 3.63,
+    "credits_completed": 19,
+    "passed": [
+      "DS479",
+      "EMB345",
+      "CS101",
+      "DS145",
+      "SEC257",
+      "MATH202"
+    ],
+    "enrolled": [
+      "DB201"
+    ]
+  },
+  "B21DCPT775": {
+    "name": "Lý Hữu Loan",
+    "gpa": 3.88,
+    "credits_completed": 16,
+    "passed": [
+      "HCI311",
+      "CS101",
+      "MATH201",
+      "DS145",
+      "SE261"
+    ],
+    "enrolled": []
+  },
+  "B23DCCN353": {
+    "name": "Đỗ Tuấn Kiên",
+    "gpa": 3.76,
+    "credits_completed": 20,
+    "passed": [
+      "DS479",
+      "DS239",
+      "SEC343",
+      "HCI311",
+      "CYB220",
+      "IS253"
+    ],
+    "enrolled": [
+      "CYB269"
+    ]
+  },
+  "B22DCCN626": {
+    "name": "Vũ Hữu Chi",
+    "gpa": 1.59,
+    "credits_completed": 8,
+    "passed": [
+      "DS145",
+      "SEC343",
+      "CS101"
+    ],
+    "enrolled": []
+  },
+  "B20DCDT462": {
+    "name": "Ngô Thanh Lan",
+    "gpa": 3.94,
+    "credits_completed": 9,
+    "passed": [
+      "EMB345",
+      "SEC343",
+      "DS239"
+    ],
+    "enrolled": [
+      "DS145",
+      "IS253"
+    ]
+  },
+  "B23DCPT385": {
+    "name": "Đinh Tuấn Nga",
+    "gpa": 2.73,
+    "credits_completed": 20,
+    "passed": [
+      "SEC343",
+      "HCI311",
+      "CYB220",
+      "IS253",
+      "CS101",
+      "MATH201"
+    ],
+    "enrolled": [
+      "STAT201"
+    ]
+  },
+  "B21DCDT160": {
+    "name": "Ngô Hồng Bách",
+    "gpa": 3.97,
+    "credits_completed": 18,
+    "passed": [
+      "DS239",
+      "DS145",
+      "CLD361",
+      "DS479",
+      "CS101",
+      "HCI311"
+    ],
+    "enrolled": [
+      "MATH202"
+    ]
+  },
+  "B22DCPT159": {
+    "name": "Lý Minh Trang",
+    "gpa": 2.27,
+    "credits_completed": 5,
+    "passed": [
+      "SEC343",
+      "CS101"
+    ],
+    "enrolled": [
+      "HCI311",
+      "IS253"
+    ]
+  },
+  "B23DCCN683": {
+    "name": "Trương Hữu Yến",
+    "gpa": 3.06,
+    "credits_completed": 27,
+    "passed": [
+      "CS101",
+      "HCI311",
+      "DS479",
+      "CS102",
+      "MATH201",
+      "IS253",
+      "DS239",
+      "SEC343"
+    ],
+    "enrolled": [
+      "DB201"
+    ]
+  },
+  "B23DCPT787": {
+    "name": "Bùi Thu Khoa",
+    "gpa": 3.52,
+    "credits_completed": 9,
+    "passed": [
+      "CS101",
+      "SEC343",
+      "MATH201"
+    ],
+    "enrolled": [
+      "CYB220"
+    ]
+  },
+  "B21DCDT953": {
+    "name": "Vũ Khánh Mai",
+    "gpa": 2.51,
+    "credits_completed": 31,
+    "passed": [
+      "EMB345",
+      "DS239",
+      "DS479",
+      "CS101",
+      "CS102",
+      "SEC343",
+      "CLD361",
+      "HCI311",
+      "MATH202",
+      "DB201"
+    ],
+    "enrolled": []
+  },
+  "B25DCAT308": {
+    "name": "Đặng Kim Uyên",
+    "gpa": 2.13,
+    "credits_completed": 26,
+    "passed": [
+      "EMB345",
+      "IS253",
+      "HCI311",
+      "SEC343",
+      "CS101",
+      "SE261",
+      "DS145",
+      "MATH201"
+    ],
+    "enrolled": [
+      "ML301"
+    ]
+  },
+  "B20DCPT658": {
+    "name": "Đinh Văn Minh",
+    "gpa": 2.77,
+    "credits_completed": 34,
+    "passed": [
+      "EMB345",
+      "IS253",
+      "DS239",
+      "DS479",
+      "CS101",
+      "MATH201",
+      "HCI311",
+      "SEC343",
+      "ML301",
+      "CS102"
+    ],
+    "enrolled": [
+      "CYB220",
+      "CV302"
+    ]
+  },
+  "B22DCAT915": {
+    "name": "Ngô Minh Chi",
+    "gpa": 0.0,
+    "credits_completed": 0,
+    "passed": [],
+    "enrolled": [
+      "DS479"
+    ]
+  },
+  "B24DCDT735": {
+    "name": "Vũ Đức Quân",
+    "gpa": 0.0,
+    "credits_completed": 0,
+    "passed": [],
+    "enrolled": [
+      "DS239"
+    ]
+  },
+  "B21DCPT936": {
+    "name": "Hồ Thị Bách",
+    "gpa": 3.27,
+    "credits_completed": 36,
+    "passed": [
+      "DS479",
+      "DS145",
+      "EMB345",
+      "HCI311",
+      "DS239",
+      "HCI489",
+      "CS101",
+      "MATH202",
+      "SEC257",
+      "CLD361",
+      "IS253",
+      "SE261"
+    ],
+    "enrolled": []
+  },
+  "B22DCCN218": {
+    "name": "Đào Bảo Loan",
+    "gpa": 1.66,
+    "credits_completed": 20,
+    "passed": [
+      "IS253",
+      "DS479",
+      "HCI311",
+      "DS145",
+      "DS239",
+      "CS101"
+    ],
+    "enrolled": [
+      "SEC343"
+    ]
+  },
+  "B22DCCN825": {
+    "name": "Hồ Xuân Trang",
+    "gpa": 2.43,
+    "credits_completed": 14,
+    "passed": [
+      "DS479",
+      "IS253",
+      "DS239",
+      "CS101"
+    ],
+    "enrolled": []
+  },
+  "B25DCDT434": {
+    "name": "Đặng Phương Nam",
+    "gpa": 3.92,
+    "credits_completed": 18,
+    "passed": [
+      "CS101",
+      "IS253",
+      "SEC343",
+      "HCI311",
+      "DB201",
+      "DS239"
+    ],
+    "enrolled": []
+  },
+  "B22DCPT540": {
+    "name": "Đinh Văn Nam",
+    "gpa": 3.9,
+    "credits_completed": 20,
+    "passed": [
+      "EMB345",
+      "IS253",
+      "DS145",
+      "DS479",
+      "HCI489",
+      "HCI311"
+    ],
+    "enrolled": [
+      "SEC257"
+    ]
+  },
+  "B21DCPT250": {
+    "name": "Lê Thu Nam",
+    "gpa": 3.74,
+    "credits_completed": 25,
+    "passed": [
+      "IS253",
+      "DS239",
+      "EMB345",
+      "SEC343",
+      "HCI311",
+      "DS145",
+      "SEC257",
+      "CYB220"
+    ],
+    "enrolled": [
+      "HCI489"
+    ]
+  },
+  "B20DCDT524": {
+    "name": "Vũ Hồng Ý",
+    "gpa": 0.0,
+    "credits_completed": 0,
+    "passed": [],
+    "enrolled": []
+  },
+  "B25DCAT873": {
+    "name": "Dương Minh Tú",
+    "gpa": 2.8,
+    "credits_completed": 32,
+    "passed": [
+      "DS239",
+      "CLD361",
+      "EMB345",
+      "IS253",
+      "DS145",
+      "DS479",
+      "HCI311",
+      "CS101",
+      "MATH201",
+      "HCI489"
+    ],
+    "enrolled": [
+      "MATH202"
+    ]
+  },
+  "B25DCAT340": {
+    "name": "Võ Tuấn Giang",
+    "gpa": 3.28,
+    "credits_completed": 17,
+    "passed": [
+      "SEC343",
+      "HCI311",
+      "DS145",
+      "SEC257",
+      "EMB345",
+      "DS239"
+    ],
+    "enrolled": [
+      "CLD361",
+      "DS479"
+    ]
+  },
+  "B24DCDT525": {
+    "name": "Ngô Nhật Phong",
+    "gpa": 3.69,
+    "credits_completed": 13,
+    "passed": [
+      "IS253",
+      "DS479",
+      "SEC343",
+      "CS101"
+    ],
+    "enrolled": []
+  },
+  "B24DCDT588": {
+    "name": "Hồ Xuân Bình",
+    "gpa": 0.0,
+    "credits_completed": 0,
+    "passed": [],
+    "enrolled": [
+      "SEC343"
+    ]
+  },
+  "B25DCPT599": {
+    "name": "Hồ Nhật Loan",
+    "gpa": 0.0,
+    "credits_completed": 0,
+    "passed": [],
+    "enrolled": [
+      "EMB345"
+    ]
+  },
+  "B20DCDT706": {
+    "name": "Hoàng Kim Loan",
+    "gpa": 2.34,
+    "credits_completed": 11,
+    "passed": [
+      "EMB345",
+      "DS239",
+      "IS253"
+    ],
+    "enrolled": [
+      "SEC343"
+    ]
+  },
+  "B20DCCN458": {
+    "name": "Võ Hữu Bách",
+    "gpa": 2.33,
+    "credits_completed": 27,
+    "passed": [
+      "CS101",
+      "MATH201",
+      "SEC343",
+      "DS479",
+      "DB201",
+      "IS253",
+      "STAT201",
+      "CS102"
+    ],
+    "enrolled": [
+      "BIGDATA401",
+      "DS239"
+    ]
+  },
+  "B21DCDT816": {
+    "name": "Lý Đức Phước",
+    "gpa": 3.84,
+    "credits_completed": 9,
+    "passed": [
+      "DS145",
+      "CS101",
+      "HCI311"
+    ],
+    "enrolled": [
+      "MATH202"
+    ]
+  },
+  "B25DCPT204": {
+    "name": "Phan Hữu Trâm",
+    "gpa": 2.11,
+    "credits_completed": 15,
+    "passed": [
+      "IS253",
+      "DS145",
+      "DS479",
+      "EMB345"
+    ],
+    "enrolled": [
+      "HCI489",
+      "CYB269"
+    ]
+  },
+  "B21DCAT730": {
+    "name": "Dương Minh Hà",
+    "gpa": 2.01,
+    "credits_completed": 39,
+    "passed": [
+      "EMB345",
+      "HCI311",
+      "SEC343",
+      "IS253",
+      "CS101",
+      "CS102",
+      "DS145",
+      "CYB220",
+      "DS239",
+      "DS479",
+      "MATH202",
+      "CLD361"
+    ],
+    "enrolled": [
+      "SEC257",
+      "SE261"
+    ]
+  },
+  "B22DCPT599": {
+    "name": "Bùi Văn Diệu",
+    "gpa": 2.09,
+    "credits_completed": 25,
+    "passed": [
+      "HCI311",
+      "DS239",
+      "EMB345",
+      "CLD361",
+      "SEC343",
+      "DS479",
+      "IS253",
+      "DS145"
+    ],
+    "enrolled": [
+      "CYB269",
+      "SEC257"
+    ]
+  },
+  "B21DCDT600": {
+    "name": "Đào Thanh Hùng",
+    "gpa": 2.88,
+    "credits_completed": 11,
+    "passed": [
+      "IS253",
+      "HCI311",
+      "DS479"
+    ],
+    "enrolled": []
+  },
+  "B23DCAT460": {
+    "name": "Đinh Phương Quân",
+    "gpa": 3.24,
+    "credits_completed": 27,
+    "passed": [
+      "DS239",
+      "HCI311",
+      "SEC343",
+      "CYB220",
+      "EMB345",
+      "IS253",
+      "CS101",
+      "MATH201"
+    ],
+    "enrolled": [
+      "SE261"
+    ]
+  },
+  "B22DCPT409": {
+    "name": "Phan Gia Việt",
+    "gpa": 3.72,
+    "credits_completed": 38,
+    "passed": [
+      "HCI311",
+      "DS479",
+      "DS239",
+      "EMB345",
+      "DS145",
+      "CS101",
+      "DB201",
+      "HCI489",
+      "MATH201",
+      "CLD361",
+      "STAT201",
+      "BIGDATA401"
+    ],
+    "enrolled": [
+      "CS102"
+    ]
+  },
+  "B22DCPT753": {
+    "name": "Trần Thị Ngân",
+    "gpa": 0.0,
+    "credits_completed": 0,
+    "passed": [],
+    "enrolled": [
+      "EMB345"
+    ]
+  },
+  "B24DCCN255": {
+    "name": "Hồ Hồng Giang",
+    "gpa": 3.05,
+    "credits_completed": 18,
+    "passed": [
+      "DS145",
+      "CS101",
+      "HCI489",
+      "DS479",
+      "SEC343",
+      "CYB220"
+    ],
+    "enrolled": [
+      "MATH201",
+      "HCI311"
+    ]
+  },
+  "B22DCDT412": {
+    "name": "Hồ Tuấn Long",
+    "gpa": 3.76,
+    "credits_completed": 7,
+    "passed": [
+      "EMB345",
+      "CS101"
+    ],
+    "enrolled": [
+      "SEC343"
+    ]
+  },
+  "B23DCAT133": {
+    "name": "Ngô Tuấn Vinh",
+    "gpa": 1.66,
+    "credits_completed": 24,
+    "passed": [
+      "CS101",
+      "SEC343",
+      "HCI311",
+      "MATH201",
+      "STAT201",
+      "SE261",
+      "ML301",
+      "CV302"
+    ],
+    "enrolled": []
+  },
+  "B25DCPT372": {
+    "name": "Phạm Hải Việt",
+    "gpa": 3.69,
+    "credits_completed": 10,
+    "passed": [
+      "EMB345",
+      "SEC343",
+      "DS479"
+    ],
+    "enrolled": [
+      "IS253"
+    ]
+  },
+  "B25DCDT378": {
+    "name": "Phạm Tuấn Nam",
+    "gpa": 3.75,
+    "credits_completed": 6,
+    "passed": [
+      "DS145",
+      "CS101"
+    ],
+    "enrolled": [
+      "IS253"
+    ]
+  },
+  "B21DCDT631": {
+    "name": "Võ Xuân Chi",
+    "gpa": 3.96,
+    "credits_completed": 25,
+    "passed": [
+      "HCI311",
+      "DS239",
+      "CS101",
+      "SE261",
+      "CS102",
+      "DS479",
+      "DS145",
+      "SEC257"
+    ],
+    "enrolled": []
+  },
+  "B20DCDT190": {
+    "name": "Đặng Bảo Ngân",
+    "gpa": 2.32,
+    "credits_completed": 30,
+    "passed": [
+      "HCI311",
+      "DS479",
+      "DS145",
+      "SEC343",
+      "IS253",
+      "SEC257",
+      "HCI489",
+      "CS101",
+      "CYB269",
+      "EMB345"
+    ],
+    "enrolled": [
+      "CYB220",
+      "DB201"
+    ]
+  },
+  "B24DCDT740": {
+    "name": "Phan Phương Tâm",
+    "gpa": 2.0,
+    "credits_completed": 18,
+    "passed": [
+      "EMB345",
+      "DS479",
+      "CS101",
+      "IS253",
+      "SE261"
+    ],
+    "enrolled": []
+  },
+  "B24DCDT195": {
+    "name": "Đặng Hải An",
+    "gpa": 3.12,
+    "credits_completed": 20,
+    "passed": [
+      "CS101",
+      "DB201",
+      "DS479",
+      "SE261",
+      "MATH202",
+      "EMB345"
+    ],
+    "enrolled": [
+      "DS145"
+    ]
+  },
+  "B23DCPT492": {
+    "name": "Lý Hồng Yến",
+    "gpa": 2.15,
+    "credits_completed": 9,
+    "passed": [
+      "DS145",
+      "SEC257",
+      "DS479"
+    ],
+    "enrolled": [
+      "IS253"
+    ]
+  },
+  "B24DCDT986": {
+    "name": "Đặng Gia Trâm",
+    "gpa": 3.41,
+    "credits_completed": 10,
+    "passed": [
+      "DS479",
+      "HCI311",
+      "CS101"
+    ],
+    "enrolled": [
+      "CS102"
+    ]
+  },
+  "B21DCDT144": {
+    "name": "Vũ Xuân Thảo",
+    "gpa": 2.33,
+    "credits_completed": 7,
+    "passed": [
+      "HCI311",
+      "EMB345"
+    ],
+    "enrolled": [
+      "DS145"
+    ]
+  },
+  "B23DCCN839": {
+    "name": "Dương Đức Kiên",
+    "gpa": 3.5,
+    "credits_completed": 17,
+    "passed": [
+      "HCI311",
+      "IS253",
+      "DS239",
+      "EMB345",
+      "DS145"
+    ],
+    "enrolled": []
+  },
+  "B22DCDT993": {
+    "name": "Bùi Hải Thảo",
+    "gpa": 3.27,
+    "credits_completed": 6,
+    "passed": [
+      "SEC343",
+      "DS479"
+    ],
+    "enrolled": [
+      "CYB220",
+      "CS101"
+    ]
+  },
+  "B20DCCN432": {
+    "name": "Dương Quang Nam",
+    "gpa": 3.1,
+    "credits_completed": 25,
+    "passed": [
+      "CS101",
+      "SEC343",
+      "MATH201",
+      "STAT201",
+      "SE261",
+      "IS430",
+      "DS145",
+      "ML301"
+    ],
+    "enrolled": []
+  },
+  "B21DCDT679": {
+    "name": "Đỗ Nhật Phú",
+    "gpa": 0.0,
+    "credits_completed": 0,
+    "passed": [],
+    "enrolled": [
+      "IS253"
+    ]
+  },
+  "B23DCAT701": {
+    "name": "Đinh Quang Giang",
+    "gpa": 3.46,
+    "credits_completed": 30,
+    "passed": [
+      "DS479",
+      "DS145",
+      "EMB345",
+      "CS101",
+      "SE261",
+      "SEC343",
+      "HCI311",
+      "DB201",
+      "SEC257",
+      "MATH202"
+    ],
+    "enrolled": [
+      "DS239",
+      "CYB220"
+    ]
+  },
+  "B20DCDT381": {
+    "name": "Tô Gia Mai",
+    "gpa": 3.0,
+    "credits_completed": 12,
+    "passed": [
+      "SEC343",
+      "EMB345",
+      "DS239",
+      "HCI311"
+    ],
+    "enrolled": [
+      "CYB220",
+      "DS479"
+    ]
+  },
+  "B21DCAT324": {
+    "name": "Trương Hồng Mai",
+    "gpa": 0.0,
+    "credits_completed": 0,
+    "passed": [],
+    "enrolled": []
+  },
+  "B24DCAT643": {
+    "name": "Huỳnh Thanh Nga",
+    "gpa": 3.13,
+    "credits_completed": 29,
+    "passed": [
+      "DS239",
+      "IS253",
+      "CLD361",
+      "HCI311",
+      "DS145",
+      "SEC257",
+      "CS101",
+      "CS102",
+      "NET301",
+      "HCI489"
+    ],
+    "enrolled": [
+      "SEC343"
+    ]
+  },
+  "B23DCCN370": {
+    "name": "Đinh Khánh Hùng",
+    "gpa": 3.08,
+    "credits_completed": 23,
+    "passed": [
+      "EMB345",
+      "HCI311",
+      "DS145",
+      "DS239",
+      "CLD361",
+      "SEC343",
+      "IS253",
+      "HCI489"
+    ],
+    "enrolled": [
+      "SEC257"
+    ]
+  },
+  "B25DCDT219": {
+    "name": "Lê Tuấn Nam",
+    "gpa": 3.62,
+    "credits_completed": 23,
+    "passed": [
+      "DS145",
+      "SEC257",
+      "SEC343",
+      "IS253",
+      "HCI489",
+      "EMB345",
+      "DS239",
+      "CS101"
+    ],
+    "enrolled": [
+      "DB201"
+    ]
+  },
+  "B23DCPT524": {
+    "name": "Dương Khánh Loan",
+    "gpa": 3.1,
+    "credits_completed": 7,
+    "passed": [
+      "CS101",
+      "CS102"
+    ],
+    "enrolled": [
+      "DS479"
+    ]
+  },
+  "B20DCDT193": {
+    "name": "Hồ Ngọc Trang",
+    "gpa": 3.69,
+    "credits_completed": 29,
+    "passed": [
+      "DS145",
+      "SEC257",
+      "HCI489",
+      "DS239",
+      "CS101",
+      "EMB345",
+      "DB201",
+      "CLD361",
+      "HCI311",
+      "MATH201"
+    ],
+    "enrolled": [
+      "CS102"
+    ]
+  },
+  "B22DCPT233": {
+    "name": "Hoàng Kim An",
+    "gpa": 3.59,
+    "credits_completed": 32,
+    "passed": [
+      "DS239",
+      "CS101",
+      "CS102",
+      "HCI311",
+      "DS145",
+      "OS301",
+      "DB201",
+      "SE261",
+      "DS479",
+      "MATH202"
+    ],
+    "enrolled": [
+      "HCI489"
+    ]
+  },
+  "B20DCCN587": {
+    "name": "Hoàng Nhật Kiên",
+    "gpa": 1.36,
+    "credits_completed": 27,
+    "passed": [
+      "EMB345",
+      "HCI311",
+      "DS145",
+      "CS101",
+      "SE261",
+      "CS102",
+      "DB201",
+      "MATH201"
+    ],
+    "enrolled": [
+      "MATH202"
+    ]
+  },
+  "B23DCDT802": {
+    "name": "Nguyễn Thị Bách",
+    "gpa": 3.73,
+    "credits_completed": 20,
+    "passed": [
+      "IS253",
+      "EMB345",
+      "SEC343",
+      "CS101",
+      "CYB220",
+      "HCI311"
+    ],
+    "enrolled": [
+      "SE261"
+    ]
+  },
+  "B25DCAT490": {
+    "name": "Hoàng Ngọc Ý",
+    "gpa": 2.44,
+    "credits_completed": 3,
+    "passed": [
+      "HCI311"
+    ],
+    "enrolled": [
+      "CS101"
+    ]
+  },
+  "B22DCDT420": {
+    "name": "Hồ Nhật Lan",
+    "gpa": 2.22,
+    "credits_completed": 26,
+    "passed": [
+      "EMB345",
+      "DS239",
+      "SEC343",
+      "CYB220",
+      "IS253",
+      "CS101",
+      "MATH201",
+      "CLD361"
+    ],
+    "enrolled": [
+      "SE261"
+    ]
+  },
+  "B25DCCN394": {
+    "name": "Ngô Khánh Hà",
+    "gpa": 3.81,
+    "credits_completed": 32,
+    "passed": [
+      "EMB345",
+      "DS479",
+      "DS145",
+      "SEC257",
+      "SEC343",
+      "CS101",
+      "MATH201",
+      "MATH202",
+      "DB201",
+      "CYB220"
+    ],
+    "enrolled": [
+      "STAT201"
+    ]
+  },
+  "B23DCCN723": {
+    "name": "Võ Xuân Việt",
+    "gpa": 3.35,
+    "credits_completed": 25,
+    "passed": [
+      "EMB345",
+      "DS479",
+      "CS101",
+      "HCI311",
+      "SE261",
+      "DB201",
+      "MATH202",
+      "SEC343"
+    ],
+    "enrolled": []
+  },
+  "B23DCDT564": {
+    "name": "Lê Phương Uyên",
+    "gpa": 3.14,
+    "credits_completed": 33,
+    "passed": [
+      "EMB345",
+      "CS101",
+      "MATH202",
+      "DS479",
+      "DS239",
+      "SEC343",
+      "CYB220",
+      "CS102",
+      "OS301",
+      "NET301"
+    ],
+    "enrolled": []
+  },
+  "B23DCDT597": {
+    "name": "Trần Hữu Linh",
+    "gpa": 1.78,
+    "credits_completed": 18,
+    "passed": [
+      "DS479",
+      "DS239",
+      "EMB345",
+      "HCI311",
+      "IS253"
+    ],
+    "enrolled": [
+      "CLD361"
+    ]
+  },
+  "B20DCCN309": {
+    "name": "Vũ Bảo Vinh",
+    "gpa": 2.28,
+    "credits_completed": 24,
+    "passed": [
+      "HCI311",
+      "DS239",
+      "DS479",
+      "DS145",
+      "CLD361",
+      "HCI489",
+      "CS101",
+      "IS253"
+    ],
+    "enrolled": [
+      "CS102"
+    ]
+  },
+  "B24DCAT173": {
+    "name": "Đinh Thu Hiếu",
+    "gpa": 2.12,
+    "credits_completed": 14,
+    "passed": [
+      "DS239",
+      "DS479",
+      "HCI311",
+      "EMB345"
+    ],
+    "enrolled": [
+      "SEC343"
+    ]
+  },
+  "B21DCDT951": {
+    "name": "Hồ Văn Oanh",
+    "gpa": 2.57,
+    "credits_completed": 21,
+    "passed": [
+      "CS101",
+      "DS239",
+      "CS102",
+      "EMB345",
+      "MATH202",
+      "DS479"
+    ],
+    "enrolled": []
+  },
+  "B22DCAT844": {
+    "name": "Đào Phương Trang",
+    "gpa": 1.75,
+    "credits_completed": 36,
+    "passed": [
+      "IS253",
+      "CS101",
+      "DS239",
+      "MATH201",
+      "STAT201",
+      "EMB345",
+      "HCI311",
+      "SEC343",
+      "CLD361",
+      "MATH202",
+      "DS145",
+      "HCI489"
+    ],
+    "enrolled": []
+  },
+  "B20DCDT552": {
+    "name": "Bùi Minh Long",
+    "gpa": 3.49,
+    "credits_completed": 29,
+    "passed": [
+      "DS479",
+      "DS145",
+      "DS239",
+      "IS253",
+      "SEC257",
+      "EMB345",
+      "SEC343",
+      "CLD361",
+      "HCI489",
+      "CS101"
+    ],
+    "enrolled": [
+      "CYB269",
+      "SE261"
+    ]
+  },
+  "B23DCDT694": {
+    "name": "Trương Kim Hiếu",
+    "gpa": 1.45,
+    "credits_completed": 32,
+    "passed": [
+      "EMB345",
+      "HCI311",
+      "DS479",
+      "SEC343",
+      "CS101",
+      "DS239",
+      "CLD361",
+      "MATH201",
+      "ML301",
+      "IS253"
+    ],
+    "enrolled": []
+  },
+  "B21DCDT549": {
+    "name": "Đào Quang Chi",
+    "gpa": 3.81,
+    "credits_completed": 25,
+    "passed": [
+      "CS101",
+      "EMB345",
+      "SE261",
+      "DB201",
+      "DS239",
+      "HCI311",
+      "EMB392",
+      "MATH202"
+    ],
+    "enrolled": []
+  },
+  "B20DCPT458": {
+    "name": "Trương Minh Phong",
+    "gpa": 1.79,
+    "credits_completed": 25,
+    "passed": [
+      "DS479",
+      "DS239",
+      "EMB345",
+      "IS253",
+      "CYB269",
+      "CLD361",
+      "SEC343",
+      "CS101"
+    ],
+    "enrolled": [
+      "DS145",
+      "MATH202"
+    ]
+  },
+  "B24DCAT118": {
+    "name": "Đào Hữu Hà",
+    "gpa": 3.38,
+    "credits_completed": 13,
+    "passed": [
+      "SEC343",
+      "DS479",
+      "IS253",
+      "CYB269"
+    ],
+    "enrolled": [
+      "HCI311"
+    ]
+  },
+  "B20DCAT997": {
+    "name": "Đào Hải Kiên",
+    "gpa": 1.49,
+    "credits_completed": 17,
+    "passed": [
+      "EMB345",
+      "DS145",
+      "IS253",
+      "DS239",
+      "HCI311"
+    ],
+    "enrolled": []
+  },
+  "B25DCDT339": {
+    "name": "Dương Kim Mai",
+    "gpa": 2.81,
+    "credits_completed": 25,
+    "passed": [
+      "DS479",
+      "IS253",
+      "EMB345",
+      "DS145",
+      "DS239",
+      "SEC343",
+      "HCI311",
+      "CLD361"
+    ],
+    "enrolled": [
+      "CYB220",
+      "HCI489"
+    ]
+  },
+  "B20DCDT995": {
+    "name": "Trương Minh Khoa",
+    "gpa": 2.46,
+    "credits_completed": 23,
+    "passed": [
+      "DS239",
+      "IS253",
+      "HCI311",
+      "EMB345",
+      "DS145",
+      "SEC343",
+      "CLD361",
+      "SEC257"
+    ],
+    "enrolled": [
+      "DS479",
+      "CS101"
+    ]
+  },
+  "B23DCCN505": {
+    "name": "Dương Khánh Bình",
+    "gpa": 2.27,
+    "credits_completed": 17,
+    "passed": [
+      "DS145",
+      "HCI311",
+      "DS479",
+      "EMB345",
+      "CS101"
+    ],
+    "enrolled": [
+      "MATH201",
+      "DB201"
+    ]
+  },
+  "B25DCDT559": {
+    "name": "Đặng Hồng Nga",
+    "gpa": 3.65,
+    "credits_completed": 26,
+    "passed": [
+      "IS253",
+      "DS145",
+      "SEC257",
+      "CS101",
+      "DS239",
+      "DB201",
+      "CS102",
+      "EMB345"
+    ],
+    "enrolled": [
+      "MATH201"
+    ]
+  },
+  "B23DCCN213": {
+    "name": "Vũ Nhật Ý",
+    "gpa": 2.11,
+    "credits_completed": 25,
+    "passed": [
+      "CS101",
+      "MATH201",
+      "CS102",
+      "NET301",
+      "OS301",
+      "STAT201",
+      "SEC343",
+      "SE261"
+    ],
+    "enrolled": []
+  },
+  "B24DCCN499": {
+    "name": "Đào Khánh Giang",
+    "gpa": 3.35,
+    "credits_completed": 19,
+    "passed": [
+      "CS101",
+      "SE261",
+      "IS253",
+      "HCI311",
+      "DB201",
+      "MATH202"
+    ],
+    "enrolled": [
+      "MATH201"
+    ]
+  },
+  "B20DCAT659": {
+    "name": "Tô Hoài Nga",
+    "gpa": 3.24,
+    "credits_completed": 20,
+    "passed": [
+      "CS101",
+      "SE261",
+      "DS239",
+      "DS479",
+      "DS145",
+      "CS102"
+    ],
+    "enrolled": []
+  },
+  "B20DCAT417": {
+    "name": "Phan Thị Trang",
+    "gpa": 3.06,
+    "credits_completed": 17,
+    "passed": [
+      "DS479",
+      "HCI311",
+      "SEC343",
+      "EMB345",
+      "IS253"
+    ],
+    "enrolled": [
+      "CS101",
+      "DS239"
+    ]
+  }
+}
