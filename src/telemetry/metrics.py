@@ -337,84 +337,10 @@ class PerformanceTracker:
 
 if __name__ == "__main__":
     # Usage: python performance_tracker.py [log_file_or_inline_text]
-    # Defaults to the sample log embedded below if no argument is given.
-
-    SAMPLE_LOG = """
-{
-  "timestamp": "2026-06-01T08:14:23.382370",
-  "event": "AGENT_START",
-  "data": {"input": "Please enroll student S001 in course CS101.", "model": "gemini-2.5-flash-lite"}
-}
-{
-  "timestamp": "2026-06-01T08:14:25.914694",
-  "event": "LLM_RESPONSE",
-  "data": {"step": 1, "content": "Thought: check prerequisite...", "usage": {"prompt_tokens": 276, "completion_tokens": 317, "total_tokens": 593}, "latency_ms": 2532}
-}
-{
-  "timestamp": "2026-06-01T08:14:25.914694",
-  "event": "AGENT_END",
-  "data": {"steps": 1, "status": "success"}
-}
-{
-  "timestamp": "2026-06-01T08:14:25.914694",
-  "event": "AGENT_START",
-  "data": {"input": "What is the schedule for CS101?", "model": "gemini-2.5-flash-lite"}
-}
-{
-  "timestamp": "2026-06-01T08:14:28.144583",
-  "event": "LLM_RESPONSE",
-  "data": {"step": 1, "content": "Thought: get_exam_schedule...", "usage": {"prompt_tokens": 272, "completion_tokens": 125, "total_tokens": 397}, "latency_ms": 2229}
-}
-{
-  "timestamp": "2026-06-01T08:14:28.144583",
-  "event": "AGENT_END",
-  "data": {"steps": 1, "status": "success"}
-}
-{
-  "timestamp": "2026-06-01T08:14:28.144583",
-  "event": "AGENT_START",
-  "data": {"input": "Please use unknown_tool to do something.", "model": "gemini-2.5-flash-lite"}
-}
-{
-  "timestamp": "2026-06-01T08:14:29.611234",
-  "event": "LLM_RESPONSE",
-  "data": {"step": 1, "content": "Thought: unknown_tool not available...", "usage": {"prompt_tokens": 271, "completion_tokens": 117, "total_tokens": 388}, "latency_ms": 1466}
-}
-{
-  "timestamp": "2026-06-01T08:14:29.611234",
-  "event": "AGENT_END",
-  "data": {"steps": 1, "status": "success"}
-}
-{
-  "timestamp": "2026-06-01T08:14:29.611234",
-  "event": "AGENT_START",
-  "data": {"input": "bad_format: agent forgets to write an Action line.", "model": "gemini-2.5-flash-lite"}
-}
-{
-  "timestamp": "2026-06-01T08:14:31.132700",
-  "event": "AGENT_END",
-  "data": {"steps": 1, "status": "success"}
-}
-{
-  "timestamp": "2026-06-01T08:14:31.132700",
-  "event": "AGENT_START",
-  "data": {"input": "Keep looping: enroll enroll enroll enroll enroll enroll.", "model": "gemini-2.5-flash-lite"}
-}
-{
-  "timestamp": "2026-06-01T08:14:32.783719",
-  "event": "LLM_RESPONSE",
-  "data": {"step": 1, "content": "Thought: ambiguous request...", "usage": {"prompt_tokens": 272, "completion_tokens": 93, "total_tokens": 365}, "latency_ms": 1651}
-}
-{
-  "timestamp": "2026-06-01T08:14:32.784793",
-  "event": "AGENT_END",
-  "data": {"steps": 1, "status": "success"}
-}
-"""
-
+    # Defaults to the sample log embedded below if no argument is given
 
     import os
-    log_input = sys.argv[1] if len(sys.argv) > 1 else SAMPLE_LOG
+    log_input = sys.argv[1]
     if os.path.exists(log_input.replace('\\', '/')):
         base = os.path.splitext(os.path.basename(log_input.replace('\\', '/')))[0]
         out_path = f"{base}_metrics.txt"
