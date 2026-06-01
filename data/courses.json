@@ -1,0 +1,263 @@
+{
+  "CS101": {
+    "name": "Nhập môn Lập trình",
+    "credits": 3,
+    "prereq": [],
+    "fee_per_credit": 1200000,
+    "exam_date": "2026-06-18"
+  },
+  "CS102": {
+    "name": "Cấu trúc dữ liệu & Giải thuật",
+    "credits": 4,
+    "prereq": [
+      "CS101"
+    ],
+    "fee_per_credit": 1300000,
+    "exam_date": "2026-06-19"
+  },
+  "MATH201": {
+    "name": "Giải tích",
+    "credits": 4,
+    "prereq": [
+      "CS101"
+    ],
+    "fee_per_credit": 1000000,
+    "exam_date": "2026-06-20"
+  },
+  "MATH202": {
+    "name": "Đại số tuyến tính",
+    "credits": 3,
+    "prereq": [
+      "CS101"
+    ],
+    "fee_per_credit": 1000000,
+    "exam_date": "2026-06-21"
+  },
+  "DB201": {
+    "name": "Cơ sở dữ liệu",
+    "credits": 3,
+    "prereq": [
+      "CS101"
+    ],
+    "fee_per_credit": 1200000,
+    "exam_date": "2026-06-22"
+  },
+  "STAT201": {
+    "name": "Xác suất Thống kê",
+    "credits": 3,
+    "prereq": [
+      "MATH201"
+    ],
+    "fee_per_credit": 1100000,
+    "exam_date": "2026-06-23"
+  },
+  "OS301": {
+    "name": "Hệ điều hành",
+    "credits": 3,
+    "prereq": [
+      "CS102"
+    ],
+    "fee_per_credit": 1400000,
+    "exam_date": "2026-06-24"
+  },
+  "NET301": {
+    "name": "Mạng máy tính",
+    "credits": 3,
+    "prereq": [
+      "CS102"
+    ],
+    "fee_per_credit": 1400000,
+    "exam_date": "2026-06-26"
+  },
+  "ML301": {
+    "name": "Học máy",
+    "credits": 3,
+    "prereq": [
+      "CS101",
+      "MATH201"
+    ],
+    "fee_per_credit": 1500000,
+    "exam_date": "2026-06-25"
+  },
+  "NLP302": {
+    "name": "Xử lý Ngôn ngữ Tự nhiên",
+    "credits": 3,
+    "prereq": [
+      "ML301"
+    ],
+    "fee_per_credit": 1600000,
+    "exam_date": "2026-06-27"
+  },
+  "CV302": {
+    "name": "Thị giác Máy tính",
+    "credits": 3,
+    "prereq": [
+      "ML301"
+    ],
+    "fee_per_credit": 1600000,
+    "exam_date": "2026-06-28"
+  },
+  "AI401": {
+    "name": "Học sâu",
+    "credits": 4,
+    "prereq": [
+      "ML301",
+      "DB201"
+    ],
+    "fee_per_credit": 1800000,
+    "exam_date": "2026-06-30"
+  },
+  "BIGDATA401": {
+    "name": "Dữ liệu lớn",
+    "credits": 4,
+    "prereq": [
+      "DB201",
+      "STAT201"
+    ],
+    "fee_per_credit": 1700000,
+    "exam_date": "2026-07-01"
+  },
+  "RL402": {
+    "name": "Học tăng cường",
+    "credits": 3,
+    "prereq": [
+      "AI401"
+    ],
+    "fee_per_credit": 2000000,
+    "exam_date": "2026-07-02"
+  },
+  "MLOPS403": {
+    "name": "MLOps & Triển khai",
+    "credits": 3,
+    "prereq": [
+      "AI401",
+      "OS301"
+    ],
+    "fee_per_credit": 1900000,
+    "exam_date": "2026-07-03"
+  },
+  "DS145": {
+    "name": "Phân tích Dữ liệu",
+    "credits": 3,
+    "prereq": [],
+    "fee_per_credit": 1200000,
+    "exam_date": "2026-07-27"
+  },
+  "DS479": {
+    "name": "Internet vạn vật",
+    "credits": 4,
+    "prereq": [],
+    "fee_per_credit": 1000000,
+    "exam_date": "2026-07-04"
+  },
+  "DS239": {
+    "name": "Blockchain",
+    "credits": 3,
+    "prereq": [],
+    "fee_per_credit": 2000000,
+    "exam_date": "2026-07-11"
+  },
+  "EMB345": {
+    "name": "Điện toán Đám mây",
+    "credits": 4,
+    "prereq": [],
+    "fee_per_credit": 1800000,
+    "exam_date": "2026-07-12"
+  },
+  "IS253": {
+    "name": "Hệ thống Thông tin",
+    "credits": 4,
+    "prereq": [],
+    "fee_per_credit": 1100000,
+    "exam_date": "2026-07-15"
+  },
+  "SEC343": {
+    "name": "Khai phá Dữ liệu",
+    "credits": 2,
+    "prereq": [],
+    "fee_per_credit": 2000000,
+    "exam_date": "2026-07-06"
+  },
+  "HCI489": {
+    "name": "Hệ nhúng",
+    "credits": 2,
+    "prereq": [
+      "DS145"
+    ],
+    "fee_per_credit": 1000000,
+    "exam_date": "2026-07-25"
+  },
+  "CYB220": {
+    "name": "An toàn Thông tin",
+    "credits": 4,
+    "prereq": [
+      "SEC343"
+    ],
+    "fee_per_credit": 1600000,
+    "exam_date": "2026-07-18"
+  },
+  "SEC257": {
+    "name": "Lập trình Web",
+    "credits": 2,
+    "prereq": [
+      "DS145"
+    ],
+    "fee_per_credit": 1200000,
+    "exam_date": "2026-07-21"
+  },
+  "CYB269": {
+    "name": "Phân tích Dữ liệu ứng dụng",
+    "credits": 3,
+    "prereq": [
+      "DS479",
+      "IS253"
+    ],
+    "fee_per_credit": 1000000,
+    "exam_date": "2026-07-11"
+  },
+  "SE261": {
+    "name": "Internet vạn vật ứng dụng",
+    "credits": 3,
+    "prereq": [
+      "CS101"
+    ],
+    "fee_per_credit": 1400000,
+    "exam_date": "2026-07-24"
+  },
+  "EMB392": {
+    "name": "Tương tác Người-Máy",
+    "credits": 3,
+    "prereq": [
+      "DB201",
+      "SE261"
+    ],
+    "fee_per_credit": 1600000,
+    "exam_date": "2026-07-27"
+  },
+  "CLD361": {
+    "name": "Mật mã học nâng cao",
+    "credits": 2,
+    "prereq": [
+      "DS239"
+    ],
+    "fee_per_credit": 1000000,
+    "exam_date": "2026-07-07"
+  },
+  "IS430": {
+    "name": "Kiểm thử Phần mềm",
+    "credits": 4,
+    "prereq": [
+      "SE261",
+      "MATH201"
+    ],
+    "fee_per_credit": 2200000,
+    "exam_date": "2026-07-20"
+  },
+  "HCI311": {
+    "name": "Lập trình Web ứng dụng",
+    "credits": 3,
+    "prereq": [],
+    "fee_per_credit": 1100000,
+    "exam_date": "2026-07-13"
+  }
+}

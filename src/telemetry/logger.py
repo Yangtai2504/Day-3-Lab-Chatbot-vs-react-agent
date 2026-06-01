@@ -45,7 +45,12 @@ class IndustryLogger:
         self.logger.info(msg)
 
     def error(self, msg: str, exc_info=True):
-        self.logger.error(msg, exc_info=exc_info)
+        payload = {
+            "timestamp": datetime.utcnow().isoformat(),
+            "event": "error",
+            "data": {"message": msg}
+        }
+        self.logger.error(json.dumps(payload, ensure_ascii=False), exc_info=exc_info)
 
 # Global logger instance
 logger = IndustryLogger()
