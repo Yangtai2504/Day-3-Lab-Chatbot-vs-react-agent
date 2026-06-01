@@ -2,7 +2,9 @@ import logging
 import json
 import os
 from datetime import datetime
+import sys
 from typing import Any, Dict
+sys.stdout.reconfigure(encoding="utf-8")
 
 class IndustryLogger:
     """
@@ -18,10 +20,13 @@ class IndustryLogger:
 
         # File Handler (JSON)
         log_file = os.path.join(log_dir, f"{datetime.now().strftime('%Y-%m-%d')}.log")
-        file_handler = logging.FileHandler(log_file)
+        file_handler = logging.FileHandler(
+            log_file,
+            encoding="utf-8"
+        )        
         
         # Console Handler
-        console_handler = logging.StreamHandler()
+        console_handler = logging.StreamHandler(sys.stdout)        
         
         self.logger.addHandler(file_handler)
         self.logger.addHandler(console_handler)
@@ -33,8 +38,9 @@ class IndustryLogger:
             "event": event_type,
             "data": data
         }
-        self.logger.info(json.dumps(payload))
-
+        self.logger.info(
+            json.dumps(payload, ensure_ascii=False)
+        )
     def info(self, msg: str):
         self.logger.info(msg)
 
