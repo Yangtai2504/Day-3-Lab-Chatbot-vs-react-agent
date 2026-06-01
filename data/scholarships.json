@@ -1,0 +1,39 @@
+{
+  "policies": [
+    {
+      "code": "MERIT_50",
+      "name": "Học bổng xuất sắc",
+      "min_gpa": 3.5,
+      "percent": 50,
+      "fixed_amount": 0
+    },
+    {
+      "code": "MERIT_30",
+      "name": "Học bổng giỏi",
+      "min_gpa": 3.2,
+      "percent": 30,
+      "fixed_amount": 0
+    },
+    {
+      "code": "MERIT_20",
+      "name": "Học bổng khuyến khích học tập",
+      "min_gpa": 3.0,
+      "percent": 20,
+      "fixed_amount": 0
+    },
+    {
+      "code": "NEED_FIX",
+      "name": "Hỗ trợ sinh viên khó khăn",
+      "min_gpa": 0.0,
+      "percent": 0,
+      "fixed_amount": 1000000
+    },
+    {
+      "code": "POLICY_FIX",
+      "name": "Trợ cấp diện chính sách",
+      "min_gpa": 0.0,
+      "percent": 0,
+      "fixed_amount": 2000000
+    }
+  ]
+}
