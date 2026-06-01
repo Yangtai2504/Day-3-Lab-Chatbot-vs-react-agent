@@ -14,14 +14,16 @@ import os
 import sys
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
+# NOTE (P6 integrator): bộ tool P2 chốt chỉ có 6 hàm. 3 hàm Dương dự kiến —
+# check_eligibility, get_scholarship_rate, list_available_courses — KHÔNG có trong
+# edu_tools.py của P2 nên đã bỏ khỏi import để eval chạy được. Các test case vẫn
+# giữ nguyên expected_tools (chỉ là metadata mô tả, không dùng để chấm điểm).
 from src.tools.edu_tools import (
     get_student_record,
     check_prerequisite,
-    check_eligibility,
     calculate_tuition,
     apply_scholarship,
-    get_scholarship_rate,
-    list_available_courses,
+    get_exam_schedule,
     check_academic_warning,
     EDU_TOOLS,
 )
@@ -454,13 +456,9 @@ def run_tool_smoke_tests():
         ("get_student_record_invalid", lambda: get_student_record("SVXXX")),
         ("check_prerequisite",   lambda: check_prerequisite("ML301")),
         ("check_prerequisite_no_prereq", lambda: check_prerequisite("CS101")),
-        ("check_eligibility_pass",  lambda: check_eligibility("SV001", "ML301")),
-        ("check_eligibility_fail",  lambda: check_eligibility("SV002", "ML301")),
         ("calculate_tuition",    lambda: calculate_tuition("ML301", "3")),
         ("apply_scholarship",    lambda: apply_scholarship("4500000", "20")),
-        ("get_scholarship_rate", lambda: get_scholarship_rate("SV007")),
-        ("list_available_courses_all",  lambda: list_available_courses("all")),
-        ("list_available_courses_ai",   lambda: list_available_courses("Trí tuệ nhân tạo")),
+        ("get_exam_schedule",    lambda: get_exam_schedule("ML301")),
         ("check_academic_warning_bad",  lambda: check_academic_warning("SV002")),
         ("check_academic_warning_ok",   lambda: check_academic_warning("SV007")),
     ]
