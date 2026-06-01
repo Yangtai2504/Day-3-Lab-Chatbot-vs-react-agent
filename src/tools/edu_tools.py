@@ -118,6 +118,48 @@ def check_academic_warning(gpa_or_student_id: str) -> str:
     return f"GPA {gpa} -> Không bị cảnh báo học vụ."
 
 
+def get_scholarship_rate(gpa_or_student_id: str) -> str:
+    """Tra mức % học bổng merit theo MÃ SINH VIÊN (vd SV001) hoặc theo GPA (vd 3.2)."""
+    candidate = str(gpa_or_student_id).strip()
+    student_key = _normalize_id(candidate)
+
+    if student_key in STUDENTS:
+        gpa = STUDENTS[student_key].get("gpa", 0.0)
+        who = f"SV {student_key} (GPA {gpa})"
+    else:
+        try:
+            gpa = float(candidate)
+        except ValueError:
+            return f"ERROR: Không xác định được GPA hoặc mã sinh viên: {gpa_or_student_id}"
+        who = f"GPA {gpa}"
+
+    best = None
+    for policy in SCHOLARSHIPS:
+        if policy.get("percent", 0) > 0 and gpa >= policy.get("min_gpa", 0):
+            if best is None or policy["percent"] > best["percent"]:
+                best = policy
+
+    if best is None:
+        return f"{who} -> không đủ điều kiện học bổng merit: 0%"
+    return f"{who} -> '{best['name']}' ({best['code']}): {best['percent']}%"
+
+
+def list_available_courses(filter_text: str = "") -> str:
+    """Liệt kê các môn học. filter_text rỗng/'all' = tất cả; còn lại lọc theo mã hoặc tên môn."""
+    keyword = str(filter_text).strip().lower()
+    show_all = keyword in ("", "all", "tất cả", "tat ca")
+
+    items = []
+    for course_id, course in COURSES.items():
+        if not show_all and keyword not in course_id.lower() and keyword not in course["name"].lower():
+            continue
+        items.append(f"{course_id} ({course['name']}, {course['credits']} tín chỉ)")
+
+    if not items:
+        return f"Không có môn nào khớp với '{filter_text}'."
+    return f"Có {len(items)} môn: " + "; ".join(items)
+
+
 EDU_TOOLS: List[Dict[str, Any]] = [
     {
         "name": "get_student_record",
@@ -148,5 +190,15 @@ EDU_TOOLS: List[Dict[str, Any]] = [
         "name": "check_academic_warning",
         "description": "Kiểm tra cảnh báo học vụ theo GPA hoặc mã sinh viên.",
         "func": check_academic_warning,
+    },
+    {
+        "name": "get_scholarship_rate",
+        "description": "Tra mức % học bổng theo MÃ SINH VIÊN (vd SV001) hoặc theo GPA (vd 3.2).",
+        "func": get_scholarship_rate,
+    },
+    {
+        "name": "list_available_courses",
+        "description": "Liệt kê các môn học; có thể lọc theo mã hoặc tên môn ('all' = tất cả).",
+        "func": list_available_courses,
     },
 ]

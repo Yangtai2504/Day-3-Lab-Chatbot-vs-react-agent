@@ -14,10 +14,9 @@ import os
 import sys
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-# NOTE (P6 integrator): bộ tool P2 chốt chỉ có 6 hàm. 3 hàm Dương dự kiến —
-# check_eligibility, get_scholarship_rate, list_available_courses — KHÔNG có trong
-# edu_tools.py của P2 nên đã bỏ khỏi import để eval chạy được. Các test case vẫn
-# giữ nguyên expected_tools (chỉ là metadata mô tả, không dùng để chấm điểm).
+# NOTE (P6 integrator): đã bổ sung get_scholarship_rate + list_available_courses vào
+# edu_tools.py. Riêng check_eligibility vẫn chưa có — agent tự chain check_prerequisite
+# + get_student_record để xét điều kiện học.
 from src.tools.edu_tools import (
     get_student_record,
     check_prerequisite,
@@ -25,6 +24,8 @@ from src.tools.edu_tools import (
     apply_scholarship,
     get_exam_schedule,
     check_academic_warning,
+    get_scholarship_rate,
+    list_available_courses,
     EDU_TOOLS,
 )
 
@@ -460,6 +461,9 @@ def run_tool_smoke_tests():
         ("get_exam_schedule",    lambda: get_exam_schedule("ML301")),
         ("check_academic_warning_bad",  lambda: check_academic_warning("SV002")),
         ("check_academic_warning_ok",   lambda: check_academic_warning("SV007")),
+        ("get_scholarship_rate",   lambda: get_scholarship_rate("SV001")),
+        ("list_available_courses_all", lambda: list_available_courses("all")),
+        ("list_available_courses_ml",  lambda: list_available_courses("ML")),
     ]
 
     passed = 0

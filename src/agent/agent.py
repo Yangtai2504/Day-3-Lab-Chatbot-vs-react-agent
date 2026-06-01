@@ -19,20 +19,24 @@ class ReActAgent:
             [f"- {t['name']}: {t['description']}" for t in self.tools]
         )
         return f"""
-You are a student registration assistant. You may only use the available tools below:
+Bạn là trợ lý tư vấn đăng ký môn học của trường đại học. Bạn CHỈ được dùng các công cụ sau:
 {tool_descriptions}
 
-Follow this exact format for every step:
-Thought: explain your reasoning.
-Action: tool_name(arg1, arg2)
-Observation: result of the tool call.
-... (repeat Thought / Action / Observation until you have enough information)
-Final Answer: provide the final answer to the user.
+Luôn trả lời bằng tiếng Việt và tuân theo ĐÚNG định dạng sau cho mỗi bước.
+Giữ NGUYÊN các từ khóa tiếng Anh: "Thought", "Action", "Observation", "Final Answer".
+Thought: trình bày suy luận của bạn (bằng tiếng Việt).
+Action: tên_công_cụ(tham_số1, tham_số2)
+Observation: kết quả công cụ trả về.
+... (lặp lại Thought / Action / Observation đến khi đủ thông tin)
+Final Answer: câu trả lời cuối cùng cho người dùng (bằng tiếng Việt).
 
-Rules:
-- Do not invent observations. Every Action must be executed by the agent.
-- Do not use tools that are not listed.
-- Use the exact format shown above.
+Quy tắc:
+- Mỗi lượt CHỈ xuất ĐÚNG MỘT Thought và MỘT Action, rồi DỪNG.
+- KHÔNG tự viết Observation — agent sẽ chạy công cụ và đưa kết quả thật cho bạn.
+- KHÔNG xuất "Final Answer" trong cùng lượt với một Action. Chỉ đưa Final Answer ở
+  lượt sau, sau khi đã thấy các Observation thật và có đủ thông tin.
+- Không dùng công cụ ngoài danh sách trên.
+- Dùng đúng định dạng trên; toàn bộ nội dung viết bằng tiếng Việt.
 """
 
     def run(self, user_input: str) -> str:
@@ -62,35 +66,42 @@ Rules:
                 "latency_ms": latency,
             })
 
+            action_data = self._parse_action(content)
             final_answer = self._parse_final_answer(content)
+
+            # Ưu tiên thực thi Action. Model (đặc biệt Gemini) hay xuất cả Action lẫn
+            # "Final Answer" (kèm Observation tự bịa) trong cùng một lượt — nếu trả về
+            # ngay khi thấy Final Answer thì tool không bao giờ chạy, agent dừng ở bước 1
+            # với số liệu bịa. Vì vậy: còn Action thì luôn chạy tool trước.
+            if action_data is not None:
+                tool_name, raw_args = action_data
+                observation = self._execute_tool(tool_name, raw_args)
+                self.history[-1]["observation"] = observation
+                logger.log_event("TOOL_CALL", {
+                    "step": steps + 1,
+                    "tool": tool_name,
+                    "args": raw_args,
+                    "observation": observation,
+                })
+
+                thought_action = self._extract_thought_action(content)
+                transcript += f"{thought_action}\nObservation: {observation}\n"
+
+                if observation.startswith("ERROR"):
+                    transcript += "Note: The tool returned an error, please choose a different action or correct the arguments.\n"
+
+                steps += 1
+                continue
+
+            # Không còn Action — nếu có Final Answer thì kết thúc.
             if final_answer is not None:
                 logger.log_event("AGENT_END", {"steps": steps + 1, "status": "success"})
                 return final_answer.strip()
 
-            action_data = self._parse_action(content)
-            if action_data is None:
-                logger.log_event("PARSE_ERROR", {"step": steps + 1, "raw": content[:300]})
-                self.history[-1]["observation"] = "PARSE_ERROR: không đọc được Action."
-                transcript += f"{content}\nObservation: Tôi không đọc được Action. Vui lòng dùng định dạng Action: tool_name(arg1, arg2).\n"
-                steps += 1
-                continue
-
-            tool_name, raw_args = action_data
-            observation = self._execute_tool(tool_name, raw_args)
-            self.history[-1]["observation"] = observation
-            logger.log_event("TOOL_CALL", {
-                "step": steps + 1,
-                "tool": tool_name,
-                "args": raw_args,
-                "observation": observation,
-            })
-
-            thought_action = self._extract_thought_action(content)
-            transcript += f"{thought_action}\nObservation: {observation}\n"
-
-            if observation.startswith("ERROR"):
-                transcript += "Note: The tool returned an error, please choose a different action or correct the arguments.\n"
-
+            # Không có cả Action lẫn Final Answer → parse error, nhắc lại định dạng.
+            logger.log_event("PARSE_ERROR", {"step": steps + 1, "raw": content[:300]})
+            self.history[-1]["observation"] = "PARSE_ERROR: không đọc được Action."
+            transcript += f"{content}\nObservation: Tôi không đọc được Action. Vui lòng dùng định dạng Action: tool_name(arg1, arg2).\n"
             steps += 1
 
         logger.log_event("AGENT_END", {"steps": steps, "status": "max_steps"})
@@ -131,6 +142,11 @@ Rules:
 
     def _clean_arg(self, arg: str) -> str:
         arg = arg.strip()
+        # Hỗ trợ keyword-arg kiểu Python mà LLM hay dùng: tool(course_id='ML301')
+        # → bỏ phần "course_id=" chỉ giữ giá trị. Tham số vẫn truyền theo vị trí.
+        kw = re.match(r"^[A-Za-z_]\w*\s*=\s*(.+)$", arg)
+        if kw:
+            arg = kw.group(1).strip()
         if (arg.startswith("'") and arg.endswith("'")) or (arg.startswith('"') and arg.endswith('"')):
             return arg[1:-1].strip()
         return arg
